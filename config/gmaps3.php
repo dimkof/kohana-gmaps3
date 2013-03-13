@@ -5,60 +5,60 @@ return array(
     // Configuration
     'maps_url'       => 'http://maps.google.com/maps/api/js', // V3 URL
     'geocoding_url'  => 'http://maps.googleapis.com/maps/api/geocode',
-    'sensor'         => FALSE,           // Activate localization sensor
-    'language'       => 'en',            // i18n = Autodetect language from Kohana framework (Also you can use en, es, de...)
-    'region'         => FALSE,           // Use GB, ES, US and force the region localization (FALSE = auto)
-    'default_lat'    => '56.177668',     // Default center lat
-    'default_lon'    => '10.18158',      // Default center lon
-    'default_zoom'   => 8,                           // Default zoom
-    'default_type'   => 'ROADMAP',       // Default map type (Possible values: ROADMAP, SATELLITE, HYBRID, TERRAIN)
+    'sensor'         => FALSE,          // Activate localization sensor
+    'language'       => 'i18n',         // i18n = Autodetect language from Kohana framework (Also you can use en, es, de...)
+    'region'         => FALSE,          // Use GB, ES, US and force the region localization (FALSE = auto)
+    'default_lat'    => '56.177668',    // Default center lat
+    'default_lng'    => '10.18158',     // Default center lng
+    'default_zoom'   => 13,              // Default zoom
+    'default_type'   => 'ROADMAP',      // Default map type (Possible values: ROADMAP, SATELLITE, HYBRID, TERRAIN)
 
     // Map options
     'options'       => array(
         // Zoom options
-        'maxZoom'               => 'null',     // Set max zoom (null = Max zoom allowed)
-        'minZoom'               => 'null',     // Set min zoom (null = Min zoom allowed)
-        'zoomControl'           => TRUE,       // Show zoom control
+        'maxZoom'               => 'null',      // Set max zoom (null = Max zoom allowed)
+        'minZoom'               => 'null',      // Set min zoom (null = Min zoom allowed)
+        'zoomControl'           => TRUE,        // Show zoom control
         'zoomControlOptions'    => array(
-            'position' => 'DEFAULT',    // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
-            'style'    => 'DEFAULT'     // DEFAULT, SMALL, LARGE
+            'position' => 'DEFAULT',            // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
+            'style'    => 'DEFAULT'             // DEFAULT, SMALL, LARGE
         ),
 
 
         // Pan options
-        'panControl'            => TRUE,   // Show pan control
+        'panControl'            => TRUE,    // Show pan control
         'panControlOptions'     => array(
-            'position' => 'DEFAULT'    // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
+            'position' => 'DEFAULT'         // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
         ),
 
 
         // Map type options
-        'mapTypeControl'        => TRUE,   // Show maptype control
+        'mapTypeControl'        => TRUE,    // Show maptype control
         'mapTypeControlOptions' => array(
-            'position' => 'DEFAULT', // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
-            'style'    => 'DEFAULT'  // DEFAULT, HORIZONTAL_BAR, DROPDOWN_MENU
+            'position' => 'DEFAULT',        // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
+            'style'    => 'DEFAULT'         // DEFAULT, HORIZONTAL_BAR, DROPDOWN_MENU
         ),
 
         // Scale options
-        'scaleControl'          => TRUE,   // Show scale control
+        'scaleControl'          => TRUE,    // Show scale control
         'scaleControlOptions'   => array(
-            'position' => 'DEFAULT'  // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
+            'position' => 'DEFAULT'         // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
         ),
 
         // Streetview options
-        'streetViewControl'     => TRUE,   // Show streeview control
+        'streetViewControl'     => TRUE,    // Show streeview control
         'streetViewControlOptions' => array(
-            'position' => 'DEFAULT' // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
+            'position' => 'DEFAULT'         // DEFAULT, TOP_CENTER, RIGHT_CENTER, BOTTOM_CENTER...
         ),
 
         // Overview options
-        'overviewMapControl'    => TRUE,  // Show overview control
+        'overviewMapControl'    => TRUE,    // Show overview control
         'overviewControlOptions'=> array(
-            'opened' => TRUE       // Overview open by default
+            'opened' => TRUE                // Overview open by default
         ),
 
         // Usability options
-        'scrollwheel'           => FALSE, // Use scrollwheel
+        'scrollwheel'           => FALSE,   // Use scrollwheel
     ),
 
 
@@ -69,7 +69,7 @@ return array(
 
     // Marker options
     'default_icon'   => 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png',
-    'draggable'      => FALSE,           // Draggable
+    'draggable'      => FALSE,                                  // Draggable
     'icon_size'      => array('width' => 32, 'height' => 32),   // Icon size (Width, Height) (Default 32 x 32)
     'icon_origin'    => array('x'     => 0 , 'y'      => 0 ),   // Icon origin (Default x=0 y=0)
     'icon_anchor'    => array('width' => 9 , 'height' => 34),   // Icon anchor (Width, Height) (Default 9 x 34)
