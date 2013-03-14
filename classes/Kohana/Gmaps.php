@@ -9,7 +9,7 @@
  * @version      1.5
  */
 
-abstract class Kohana_Gmaps3 {
+abstract class Kohana_Gmaps {
 
     protected static $instance;
 
@@ -32,27 +32,27 @@ abstract class Kohana_Gmaps3 {
 
     public static function instance()
     {
-        if ( ! isset(Gmaps3::$instance))
+        if ( ! isset(Gmaps::$instance))
         {
             // Load the configuration for this type
             $config = Kohana::$config->load('gmaps3');
 
             // Create a new session instance
-            Gmaps3::$instance = new Gmaps3($config);
+            Gmaps::$instance = new Gmaps($config);
         }
 
-        return Gmaps3::$instance;
+        return Gmaps::$instance;
     }
 
 
     /**
-     * Create an instance of Gmaps3.
+     * Create an instance of Gmaps.
      *
      * @return  object
      */
     public static function factory($config = array())
     {
-        return new Gmaps3($config);
+        return new Gmaps($config);
     }
 
 
@@ -94,14 +94,14 @@ abstract class Kohana_Gmaps3 {
 
         $this->last_key = 'circle_'.(int)sizeof($this->circles);
 
-        $this->circles[$this->last_key]['lat']                      = $lat;
-        $this->circles[$this->last_key]['lng']                      = $lng;
-        $this->circles[$this->last_key]['radius']                   = $radius;
+        $this->circles[$this->last_key]['lat']              = $lat;
+        $this->circles[$this->last_key]['lng']              = $lng;
+        $this->circles[$this->last_key]['radius']           = $radius;
         $this->circles[$this->last_key]['strokeColor']      = $strokecolor;
         $this->circles[$this->last_key]['strokeWeight']     = $strokeweight;
         $this->circles[$this->last_key]['strokeOpacity']    = $strokeopacity;
         $this->circles[$this->last_key]['fillOpacity']      = $fillopacity;
-        $this->circles[$this->last_key]['fillColor']            = $fillcolor;
+        $this->circles[$this->last_key]['fillColor']        = $fillcolor;
 
         return $this;
 
@@ -187,13 +187,13 @@ abstract class Kohana_Gmaps3 {
 
         $this->last_key = 'mark_'.(int)sizeof($this->marks);
 
-        $this->marks[$this->last_key]['lat']                = $lat;
-        $this->marks[$this->last_key]['lng']                = $lng;
-        $this->marks[$this->last_key]['title']          = $title;
+        $this->marks[$this->last_key]['lat']        = $lat;
+        $this->marks[$this->last_key]['lng']        = $lng;
+        $this->marks[$this->last_key]['title']      = $title;
         $this->marks[$this->last_key]['draggable']  = $draggable;
-        $this->marks[$this->last_key]['icon']               = $icon;
-        $this->marks[$this->last_key]['shadow']         = $shadow;
-        $this->marks[$this->last_key]['icon_ops']       = $icon_ops;
+        $this->marks[$this->last_key]['icon']       = $icon;
+        $this->marks[$this->last_key]['shadow']     = $shadow;
+        $this->marks[$this->last_key]['icon_ops']   = $icon_ops;
         $this->marks[$this->last_key]['marker_ops'] = $marker_ops;
 
         return $this;
@@ -205,12 +205,12 @@ abstract class Kohana_Gmaps3 {
      * Add a polygon group
      *
      * @chainable
-     * @param       string  Polygon group
-     * @param   string  Stroke color in hex html value (Default '#000000')
-     * @param   integer Stroke line weight (Default 2)
-     * @param       float       Stroke opacity (Default 1.0)
-     * @param       float       Fill opacity (Default 0)
-     * @param       string  Fill color in hex html vlaue (Default '#FF0000');
+     * @param   string  	Polygon group
+     * @param   string  	Stroke color in hex html value (Default '#000000')
+     * @param   integer 	Stroke line weight (Default 2)
+     * @param   float       Stroke opacity (Default 1.0)
+     * @param   float       Fill opacity (Default 0)
+     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
      * @return  object
      */
     public function add_polygon_group($group, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1.0, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -225,12 +225,12 @@ abstract class Kohana_Gmaps3 {
      * Add a polyline group
      *
      * @chainable
-     * @param       string  Polyline group
-     * @param   string  Stroke color in hex html value (Default '#000000')
-     * @param   integer Stroke line weight (Default 2)
-     * @param       float       Stroke opacity (Default 1.0)
-     * @param       float       Fill opacity (Default 0)
-     * @param       string  Fill color in hex html vlaue (Default '#FF0000');
+     * @param   string  	Polyline group
+     * @param   string  	Stroke color in hex html value (Default '#000000')
+     * @param   integer 	Stroke line weight (Default 2)
+     * @param   float       Stroke opacity (Default 1.0)
+     * @param   float       Fill opacity (Default 0)
+     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
      * @return  object
      */
     public function add_polyline_group($group, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1.0, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -246,15 +246,15 @@ abstract class Kohana_Gmaps3 {
      * Add rectangle
      *
      * @chainable
-     * @param   string  Begin latitude
-     * @param   string  Begin longitude
-     * @param   string  End latitude
-     * @param   string  End longitude
-     * @param   string  Stroke color in hex html value (Default '#000000')
-     * @param   integer Stroke line weight (Default 2)
-     * @param       float       Stroke opacity (Default 1.0)
-     * @param       string  Fill color in hex html vlaue (Default '#FF0000');
-     * @param       float       Fill opacity (Default 0)
+     * @param   string  	Begin latitude
+     * @param   string  	Begin longitude
+     * @param   string  	End latitude
+     * @param   string  	End longitude
+     * @param   string  	Stroke color in hex html value (Default '#000000')
+     * @param   integer 	Stroke line weight (Default 2)
+     * @param   float       Stroke opacity (Default 1.0)
+     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
+     * @param   float       Fill opacity (Default 0)
      * @return  object
      */
     public function add_rectangle($lat, $lng, $elat, $elon, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -280,7 +280,7 @@ abstract class Kohana_Gmaps3 {
      * Center the map position in relation with an element
      *
      * @chainable
-     * @param       boolean  Autofit zoom
+     * @param   boolean  Autofit zoom
      * @param   mixed    Mark id (FALSE = Center relative to the last element)
      */
     public function center($autofit = TRUE, $mark_id = FALSE)
@@ -359,7 +359,7 @@ abstract class Kohana_Gmaps3 {
      * Center and fit the map position in relation with all map elements
      *
      * @chainable
-     * @param   boolean Autofit zoom
+     * @param   boolean 	Autofit zoom
      * @param   array       Exclude elements (marks, polylines, circles or rectangles)
      */
     public function center_all($autofit = TRUE, $exclude = array())
@@ -405,7 +405,7 @@ abstract class Kohana_Gmaps3 {
      *
      * @param       array       Exclude elements (marks, polylines, circles or rectangles)
      * @param       mixed       Filter by key (Optional)
-     * @return  array
+     * @return  	array
      */
     public function get_bounds($exclude = array(), $keys = NULL)
     {
@@ -553,7 +553,7 @@ abstract class Kohana_Gmaps3 {
     /**
      * Get javascript render script
      *
-     * @param   string   Map ID container
+     * @param   string  Map ID container
      * @param   string  Latitude
      * @param   string  Longitude
      * @return  string
@@ -636,7 +636,7 @@ abstract class Kohana_Gmaps3 {
     /**
      * Get javascript api link
      *
-     * @param       boolean     Retrieve URL without enclosed tags (Default False)
+     * @param   boolean     Retrieve URL without enclosed tags (Default False)
      * @return  string
      */
 
@@ -720,13 +720,13 @@ abstract class Kohana_Gmaps3 {
      * Add a poly group
      *
      * @chainable
-     * @param       string  Poly type (polyline or polygon)
-     * @param       string  Group
+     * @param   string  Poly type (polyline or polygon)
+     * @param   string  Group
      * @param   string  Stroke color in hex html value (Default '#000000')
      * @param   integer Stroke line weight (Default 2)
-     * @param       float       Stroke opacity (Default 1.0)
-     * @param       float       Fill opacity (Default 0.35)
-     * @param       string  Fill color in hex html vlaue (Default '#FF0000');
+     * @param   float   Stroke opacity (Default 1.0)
+     * @param   float   Fill opacity (Default 0.35)
+     * @param   string  Fill color in hex html vlaue (Default '#FF0000');
      * @return  object
      */
     protected function _add_poly_group($type, $group, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1.0, $fillopacity = '0.35', $fillcolor = '#FF0000')
@@ -1112,8 +1112,8 @@ abstract class Kohana_Gmaps3 {
     /**
      * Generate code for polys
      *
-     * @param       string  Poly type (polyline or polygon)
-     * @param       array       Poly groups
+     * @param   string  Poly type (polyline or polygon)
+     * @param   array   Poly groups
      *
      * @return  string
      */
