@@ -1,12 +1,11 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 /**
- * Google Maps Module for Kohana 3.2.
+ * Google Maps Module for Kohana 3.3.0 (fork version 1.5)
  *
  * @package    Gmaps v3
  * @author     Juan Lago D. <juanparati[at]gmail[dot]com>
  * @copyright  (c) 2011 Kohana
  * @license    http://kohanaphp.com/license.html
- * @version      1.5
  */
 
 abstract class Kohana_Gmaps {
@@ -81,12 +80,12 @@ abstract class Kohana_Gmaps {
      * @chainable
      * @param   string  Latitude
      * @param   string  Longitude
-     * @param       string  Radius (Default 50000)
+     * @param   string  Radius (Default 50000)
      * @param   string  Stroke color in hex html value (Default '#000000')
      * @param   integer Stroke line weight (Default 2)
-     * @param       float       Stroke opacity (Default 1.0)
-     * @param       string  Fill color in hex html vlaue (Default '#FF0000');
-     * @param       float       Fill opacity (Default 0)
+     * @param   float   Stroke opacity (Default 1.0)
+     * @param   string  Fill color in hex html vlaue (Default '#FF0000');
+     * @param   float   Fill opacity (Default 0)
      * @return  object
      */
     public function add_circle($lat, $lng, $radius = 50000, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -113,7 +112,7 @@ abstract class Kohana_Gmaps {
      * Add a coord point
      *
      * @chainable
-     * @param       string  Polyline group
+     * @param   string  Polyline group
      * @param   string  Latitude
      * @param   string  Longitude
      * @return  object
@@ -138,7 +137,7 @@ abstract class Kohana_Gmaps {
      * @chainable
      * @param   string  Content (You can use HTML)
      * @param   boolean Opened (Optional)
-     * @param       string  Group (Default group = 0)
+     * @param   string  Group (Default group = 0)
      * @param   integer Mark id (FALSE = Last mark)
      * @return  object
      */
@@ -205,12 +204,12 @@ abstract class Kohana_Gmaps {
      * Add a polygon group
      *
      * @chainable
-     * @param   string  	Polygon group
-     * @param   string  	Stroke color in hex html value (Default '#000000')
-     * @param   integer 	Stroke line weight (Default 2)
+     * @param   string      Polygon group
+     * @param   string      Stroke color in hex html value (Default '#000000')
+     * @param   integer     Stroke line weight (Default 2)
      * @param   float       Stroke opacity (Default 1.0)
      * @param   float       Fill opacity (Default 0)
-     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
+     * @param   string      Fill color in hex html vlaue (Default '#FF0000');
      * @return  object
      */
     public function add_polygon_group($group, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1.0, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -225,12 +224,12 @@ abstract class Kohana_Gmaps {
      * Add a polyline group
      *
      * @chainable
-     * @param   string  	Polyline group
-     * @param   string  	Stroke color in hex html value (Default '#000000')
-     * @param   integer 	Stroke line weight (Default 2)
+     * @param   string      Polyline group
+     * @param   string      Stroke color in hex html value (Default '#000000')
+     * @param   integer     Stroke line weight (Default 2)
      * @param   float       Stroke opacity (Default 1.0)
      * @param   float       Fill opacity (Default 0)
-     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
+     * @param   string      Fill color in hex html vlaue (Default '#FF0000');
      * @return  object
      */
     public function add_polyline_group($group, $strokecolor = '#000000', $strokeweight = 2, $strokeopacity = 1.0, $fillopacity = 0, $fillcolor = '#FF0000')
@@ -246,14 +245,14 @@ abstract class Kohana_Gmaps {
      * Add rectangle
      *
      * @chainable
-     * @param   string  	Begin latitude
-     * @param   string  	Begin longitude
-     * @param   string  	End latitude
-     * @param   string  	End longitude
-     * @param   string  	Stroke color in hex html value (Default '#000000')
-     * @param   integer 	Stroke line weight (Default 2)
+     * @param   string      Begin latitude
+     * @param   string      Begin longitude
+     * @param   string      End latitude
+     * @param   string      End longitude
+     * @param   string      Stroke color in hex html value (Default '#000000')
+     * @param   integer     Stroke line weight (Default 2)
      * @param   float       Stroke opacity (Default 1.0)
-     * @param   string  	Fill color in hex html vlaue (Default '#FF0000');
+     * @param   string      Fill color in hex html vlaue (Default '#FF0000');
      * @param   float       Fill opacity (Default 0)
      * @return  object
      */
@@ -359,7 +358,7 @@ abstract class Kohana_Gmaps {
      * Center and fit the map position in relation with all map elements
      *
      * @chainable
-     * @param   boolean 	Autofit zoom
+     * @param   boolean     Autofit zoom
      * @param   array       Exclude elements (marks, polylines, circles or rectangles)
      */
     public function center_all($autofit = TRUE, $exclude = array())
@@ -403,9 +402,9 @@ abstract class Kohana_Gmaps {
     /**
      * Get the bounds of all map elements or filtered elements
      *
-     * @param       array       Exclude elements (marks, polylines, circles or rectangles)
-     * @param       mixed       Filter by key (Optional)
-     * @return  	array
+     * @param   array   Exclude elements (marks, polylines, circles or rectangles)
+     * @param   mixed   Filter by key (Optional)
+     * @return  array
      */
     public function get_bounds($exclude = array(), $keys = NULL)
     {
@@ -1243,7 +1242,7 @@ abstract class Kohana_Gmaps {
     /**
      * Generate position points from an array
      *
-     * @param       array
+     * @param   array
      * @return  string
      */
     public function _get_points($positions)
