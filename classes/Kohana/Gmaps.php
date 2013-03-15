@@ -34,7 +34,7 @@ abstract class Kohana_Gmaps {
         if ( ! isset(Gmaps::$instance))
         {
             // Load the configuration for this type
-            $config = Kohana::$config->load('gmaps3');
+            $config = Kohana::$config->load('gmaps');
 
             // Create a new session instance
             Gmaps::$instance = new Gmaps($config);
@@ -1207,6 +1207,8 @@ abstract class Kohana_Gmaps {
         // Set params
         if ( ! empty($address))
         {
+			$address = $this->translit($address);
+
             $url .= '&address='.htmlentities($address);
         }
         elseif ( ! empty($lat) AND ! empty($lng))
@@ -1277,4 +1279,25 @@ abstract class Kohana_Gmaps {
         return sizeof($array) > 0 ? $keys[sizeof($array) - 1] : FALSE;
     }
 
+
+
+    /**
+     * transliteration
+     *
+     * @param string $string
+     * @param string $type
+     *
+     * @return string
+     */
+    public function translit($str, $type = 'cyrillic')
+    {
+        $converter  = Kohana::$config->load('translit.'.$type);
+
+        $str = HTML::chars(strip_tags($str));
+		$str = str_replace(array('&nbsp;', '&amp;', '&laquo;', '&raquo;', '&ndash;', '\n', '\r'), ' ', $str);
+		$str = preg_replace('/(\r\n|\n|\r)\s*(\r\n|\n|\r)/', ' ', $str);
+		$str = preg_replace('/[ \t]{1,}/', '+', $str);
+
+        return strtr($str, $converter);
+    }
 }
