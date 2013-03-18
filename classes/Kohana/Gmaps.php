@@ -524,6 +524,20 @@ abstract class Kohana_Gmaps {
 
 
     /**
+     * Get coordinates from address
+     *
+     * @param   string  Search query (Ex "Rua Real 3, 15155 Finisterre, A Coruña")
+     * @param   boolean Decode response in JSON format? (Default TRUE)
+     * @return  object
+     */
+    public function get_coordinates($query, $decode = TRUE)
+    {
+        $info = $this->_geo_request($query, NULL, NULL, $decode);
+        return $info->results[0]->geometry->bounds->northeast;
+	}
+
+
+    /**
      * Get last infowindow key
      *
      * @param   boolean  TRUE for get javascript reference
@@ -1294,7 +1308,7 @@ abstract class Kohana_Gmaps {
         $converter  = Kohana::$config->load('translit.'.$type);
 
         $str = HTML::chars(strip_tags($str));
-		$str = str_replace(array('&nbsp;', '&amp;', '&laquo;', '&raquo;', '&ndash;', '\n', '\r'), ' ', $str);
+		$str = str_replace(array('&nbsp;', '&amp;', '&laquo;', '&raquo;', '&ndash;', '\n', '\r', '\s'), ' ', $str);
 		$str = preg_replace('/(\r\n|\n|\r)\s*(\r\n|\n|\r)/', ' ', $str);
 		$str = preg_replace('/[ \t]{1,}/', '+', $str);
 
